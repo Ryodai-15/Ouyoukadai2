@@ -8,11 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
-    <%= render 'layouts/header' %>
+    <%= render partial: 'layouts/header' %>
       <main>
         <p id="notice"><%= notice %></p>
+        <%= yield %>
       </main>
-    <%= render 'layouts/footer' %>
+    <%= render partial: 'layouts/footer' %>
   </body>
 </html>
