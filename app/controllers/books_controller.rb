@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  
+
   before_action :authenticate_user!
-  
+
   before_action :correct_user, only: [:edit, :update]
 
 
@@ -45,9 +45,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def destoy
+  def destroy
     @book = Book.find(params[:id])
-    @book.destoy
+    @book.destroy
     redirect_to books_path
   end
 
@@ -56,7 +56,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def correct_user
     @book = Book.find(params[:id]) # idをもとにPost（投稿）を特定
     @user = @book.user             # 特定されたPostに紐づくUserを特定し、@userに入れる
